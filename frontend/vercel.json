@@ -1,5 +1,6 @@
 {
-  "buildCommand": "npm install",
-  "outputDirectory": ".",
-  "envPrefix": "REACT_APP_"
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
 }
