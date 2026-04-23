@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+// ✅ Use your deployed backend URL
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: "https://lost-found-backend-jsl6.onrender.com/api",
 });
 
 // Add token to request headers
@@ -13,7 +14,7 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// API endpoints
+// ================= AUTH APIs =================
 export const authAPI = {
   register: (data) => API.post('/auth/register', data),
   login: (data) => API.post('/auth/login', data),
@@ -21,6 +22,7 @@ export const authAPI = {
   updatePassword: (data) => API.put('/auth/update-password', data),
 };
 
+// ================= ITEM APIs =================
 export const itemAPI = {
   getAllItems: () => API.get('/items'),
   getItemById: (id) => API.get(`/items/${id}`),
